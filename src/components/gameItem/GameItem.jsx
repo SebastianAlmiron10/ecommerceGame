@@ -1,20 +1,34 @@
-import { Button, Card } from "react-bootstrap";
+import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-const GameItem = (imageUrl) => {
+const GameItem = ({ data }) => {
 
-    <Card style={{ width: "22rem" }} className="m-3">
+    
+    return (
+        <Card style={{ width: "22rem" }} className="m-3">
             <Card.Img
                 height={400}
                 variant="top"
-                src={imageUrl !== "" ? imageUrl : "https://bit.ly/47NylZk"}
+                src={data.thumbnail}
             />
-            
-            </Card>
+            <Card.Body>
+                <Card.Title>{data.title}</Card.Title>
+                <p className='text-ellipsis'>{data.short_description}</p>
+                <a href={data.game_url}>
+                    <Button>More Info</Button>
+                </a>
+            </Card.Body>
+        </Card>    
+    )
+}
 
+GameItem.propTypes = {
+    data: PropTypes.array
 
 }
 
-
+export default GameItem;
 
 
 
