@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-//import GameList from './components/gameList/GameList'
+import GameList from './components/gameList/GameList'
+import NavBar from './components/navBar/NavBar';
 import './App.css'
 
 function App() {
@@ -54,9 +55,14 @@ function App() {
 
 
   return (
-    <div className='text-2xl'>
-      <GameList Data={Data} />
-    </div>
+    <>
+      <NavBar/>
+      
+
+      <div className='text-2xl'>
+        <GameList Data={Data} />
+      </div>
+    </>
   )
 }
 
