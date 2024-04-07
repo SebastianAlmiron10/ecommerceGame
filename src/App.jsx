@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GameList from './components/gameList/GameList'
 import NavBar from './components/navBar/NavBar';
 import './App.css'
+import MoreInfo from './components/moreInfo/MoreInfo';
 
 function App() {
 
@@ -52,16 +53,29 @@ function App() {
 
   }, []); // El array vacío indica que este efecto se ejecuta solo una vez, al montar el componente
 
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
 
+  const openModal = (game) => {
+    setSelectedGame(game); // Establece el juego seleccionado
+    setModalShow(true);
+  };
+  
+  const hideModal = () => {
+    setSelectedGame(null); // Resetea el juego seleccionado al cerrar
+    setModalShow(false);
+  };
 
   return (
+
     <>
-      <NavBar/>
-      
+      <NavBar />
+
 
       <div className='text-2xl'>
-        <GameList Data={Data} />
+        <GameList Data={Data} openModal={openModal} />
       </div>
+      {selectedGame && <MoreInfo Data={selectedGame} showModal={modalShow} hideModal={hideModal} />}
     </>
   )
 }

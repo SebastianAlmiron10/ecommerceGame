@@ -2,9 +2,8 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const GameItem = ({ data }) => {
+const GameItem = ({ data, openModal }) => {
 
-    
     return (
         <Card style={{ width: "22rem" }} className="m-3">
             <Card.Img
@@ -14,17 +13,20 @@ const GameItem = ({ data }) => {
             />
             <Card.Body>
                 <Card.Title>{data.title}</Card.Title>
-                <p className='text-ellipsis'>{data.short_description}</p>
-                <a href={data.game_url}>
-                    <Button>More Info</Button>
-                </a>
+                <div className='w-[300px] h-[100px]  whitespace-nowrap'>
+                    <p className='text-ellipsis overflow-hidden'>{data.short_description}</p>
+                </div>
+                <Button variant="primary" onClick={() => openModal(data)}>
+                   More Info
+                </Button>
             </Card.Body>
-        </Card>    
+        </Card>
     )
 }
 
 GameItem.propTypes = {
-    data: PropTypes.array
+    data: PropTypes.array,
+    openModal: PropTypes.bool,
 
 }
 
