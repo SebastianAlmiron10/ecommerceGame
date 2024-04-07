@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import GameList from './components/gameList/GameList'
 import NavBar from './components/navBar/NavBar';
 import './App.css'
+import Cart from './components/cart/Cart';
 
 function App() {
 
@@ -52,15 +53,25 @@ function App() {
 
   }, []); // El array vacío indica que este efecto se ejecuta solo una vez, al montar el componente
 
+  const [optSmModal, setOptSmModal] = useState(false);
+
+  const toggleOpen = () => setOptSmModal(!optSmModal);
+
+  
+
+ 
+
+
+
 
 
   return (
     <>
-      <NavBar/>
-      
+      <NavBar toggleOpen={toggleOpen}/>
+      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal}/>
 
       <div className='text-2xl'>
-        <GameList Data={Data} />
+        <GameList Data={Data} toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} />
       </div>
     </>
   )

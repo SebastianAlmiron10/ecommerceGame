@@ -4,9 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import PropTypes from "prop-types"
 
-
-function NavBar() {
+function NavBar({toggleOpen}) {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -39,10 +39,15 @@ function NavBar() {
             />
             <Button variant="outline-success">Search</Button>
           </Form>
+          <Button onClick={toggleOpen} className='mx-4'><svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24"  stroke="currentColor" fill="none"  ><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg></Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
+}
+
+NavBar.propTypes = {
+  toggleOpen : PropTypes.func
 }
 
 export default NavBar;

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+
 const GameItem = ({ data }) => {
 
     
@@ -17,7 +18,11 @@ const GameItem = ({ data }) => {
                 <p className='text-ellipsis'>{data.short_description}</p>
                 <a href={data.game_url}>
                     <Button>More Info</Button>
+                    
                 </a>
+                <Button className='mx-3'>Agregar Carrito</Button>
+                
+                
             </Card.Body>
         </Card>    
     )
@@ -25,7 +30,6 @@ const GameItem = ({ data }) => {
 
 GameItem.propTypes = {
     data: PropTypes.array
-
 }
 
 export default GameItem;

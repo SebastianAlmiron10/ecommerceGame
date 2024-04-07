@@ -11,6 +11,8 @@ const GameList = ({ Data }) => {
                 <GameItem 
                 key = {game.id}
                 data = {game}
+                
+                
                 />
             ))}
         </div>
