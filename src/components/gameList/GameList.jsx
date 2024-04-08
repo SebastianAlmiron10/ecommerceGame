@@ -6,6 +6,13 @@ const GameList = ({ Data, openModal }) => {
 
     return(
         <div className="d-flex justify-content-center flex-wrap">
+            {Data
+            .map(game => (
+                <GameItem 
+                key = {game.id}
+                data = {game}
+                
+                
             {Data.map(game => (
                 <GameItem
                     key={game.id}

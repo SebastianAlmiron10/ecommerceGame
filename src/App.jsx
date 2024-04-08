@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 import GameList from './components/gameList/GameList'
 import NavBar from './components/navBar/NavBar';
 import './App.css'
+<<<<<<< HEAD
 import MoreInfo from './components/moreInfo/MoreInfo';
+=======
+import Cart from './components/cart/Cart';
+>>>>>>> origin/ramaTade
 
 function App() {
 
@@ -53,8 +57,21 @@ function App() {
 
   }, []); // El array vacío indica que este efecto se ejecuta solo una vez, al montar el componente
 
+<<<<<<< HEAD
   const [modalShow, setModalShow] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
+=======
+  const [optSmModal, setOptSmModal] = useState(false);
+
+  const toggleOpen = () => setOptSmModal(!optSmModal);
+
+  
+
+ 
+
+
+
+>>>>>>> origin/ramaTade
 
   const openModal = (game) => {
     setSelectedGame(game); // Establece el juego seleccionado
@@ -69,11 +86,19 @@ function App() {
   return (
 
     <>
+<<<<<<< HEAD
       <NavBar />
-
+      
 
       <div className='text-2xl'>
         <GameList Data={Data} openModal={openModal} />
+=======
+      <NavBar toggleOpen={toggleOpen}/>
+      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal}/>
+
+      <div className='text-2xl'>
+        <GameList Data={Data} toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} />
+>>>>>>> origin/ramaTade
       </div>
       {selectedGame && <MoreInfo Data={selectedGame} showModal={modalShow} hideModal={hideModal} />}
     </>

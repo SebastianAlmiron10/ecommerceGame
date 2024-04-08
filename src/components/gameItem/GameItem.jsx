@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
+
 const GameItem = ({ data, openModal }) => {
 
     return (
@@ -19,6 +20,14 @@ const GameItem = ({ data, openModal }) => {
                 <Button variant="primary" onClick={() => openModal(data)}>
                    More Info
                 </Button>
+                <p className='text-ellipsis'>{data.short_description}</p>
+                <a href={data.game_url}>
+                    <Button>More Info</Button>
+                    
+                </a>
+                <Button className='mx-3'>Agregar Carrito</Button>
+                
+                
             </Card.Body>
         </Card>
     )
@@ -28,6 +37,7 @@ GameItem.propTypes = {
     data: PropTypes.array,
     openModal: PropTypes.bool,
 
+    data: PropTypes.array
 }
 
 export default GameItem;
