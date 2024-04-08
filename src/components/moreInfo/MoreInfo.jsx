@@ -4,7 +4,6 @@ import { Button, Modal } from 'react-bootstrap';
 
 const MoreInfo = ({ Data, showModal, hideModal }) => {
 
-    const hasData = Data && Data.length > 0;
     console.log(Data.title)
 
     return (

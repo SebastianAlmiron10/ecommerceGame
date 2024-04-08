@@ -1,23 +1,17 @@
 import GameItem from "../gameItem/GameItem";
 import PropTypes from 'prop-types';
 
-const GameList = ({ Data, openModal }) => {
+const GameList = ({ Data, openModal, addCart }) => {
 
 
     return(
-        <div className="d-flex justify-content-center flex-wrap">
-            {Data
-            .map(game => (
-                <GameItem 
-                key = {game.id}
-                data = {game}
-                
-                
+        <div className="d-flex justify-content-center flex-wrap pt-16">
             {Data.map(game => (
                 <GameItem
                     key={game.id}
-                    data={game}
+                    game={game}
                     openModal={openModal}
+                    addCart={addCart}
                 />
             ))}
         </div>
@@ -30,6 +24,7 @@ const GameList = ({ Data, openModal }) => {
 GameList.propTypes = {
     Data: PropTypes.array,
     openModal: PropTypes.bool,
+    addCart: PropTypes.func,
 };
 
 export default GameList;

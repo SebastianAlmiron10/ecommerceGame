@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 import GameList from './components/gameList/GameList'
 import NavBar from './components/navBar/NavBar';
 import './App.css'
-<<<<<<< HEAD
+import { Toaster, toast } from 'sonner'
 import MoreInfo from './components/moreInfo/MoreInfo';
-=======
 import Cart from './components/cart/Cart';
->>>>>>> origin/ramaTade
 
 function App() {
 
@@ -57,49 +55,56 @@ function App() {
 
   }, []); // El array vacío indica que este efecto se ejecuta solo una vez, al montar el componente
 
-<<<<<<< HEAD
+
   const [modalShow, setModalShow] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
-=======
   const [optSmModal, setOptSmModal] = useState(false);
 
   const toggleOpen = () => setOptSmModal(!optSmModal);
 
-  
-
- 
-
-
-
->>>>>>> origin/ramaTade
-
+  //abrir el modal de mas informacion
   const openModal = (game) => {
+   
+
     setSelectedGame(game); // Establece el juego seleccionado
     setModalShow(true);
   };
-  
+
+  //cerrar el modal de mas informacion
   const hideModal = () => {
     setSelectedGame(null); // Resetea el juego seleccionado al cerrar
     setModalShow(false);
   };
 
+  const [ShoppingCart, setShoppingCart] = useState([]);
+
+  //agregar productos al carrito
+  const addCart = (game) => {
+    toast.success(`${game.title} added to shopping cart successfully`)
+    setShoppingCart([...ShoppingCart, game])
+  }
+
+  //FALTA LOGICA
+  //eliminar priductos del carrito
+  const removeCart = (gameTitle) => {
+    setShoppingCart(ShoppingCart.filter(game => game.title !== gameTitle))
+  }
+
   return (
 
     <>
-<<<<<<< HEAD
-      <NavBar />
-      
+      <NavBar toggleOpen={toggleOpen} ShoppingCart={ShoppingCart}/>
+      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} ShoppingCart={ShoppingCart}/>
+      <GameList 
+        Data={Data} 
+        openModal={openModal} 
+        toggleOpen={toggleOpen} 
+        setOptSmModal={setOptSmModal} 
+        optSmModal={optSmModal} 
+        addCart={addCart}
 
-      <div className='text-2xl'>
-        <GameList Data={Data} openModal={openModal} />
-=======
-      <NavBar toggleOpen={toggleOpen}/>
-      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal}/>
-
-      <div className='text-2xl'>
-        <GameList Data={Data} toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} />
->>>>>>> origin/ramaTade
-      </div>
+      />
+      <Toaster richColors position="top-center"/>
       {selectedGame && <MoreInfo Data={selectedGame} showModal={modalShow} hideModal={hideModal} />}
     </>
   )
