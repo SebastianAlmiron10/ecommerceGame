@@ -17,10 +17,13 @@ const GameItem = ({ game, openModal, addCart }) => {
                 <div className='w-[300px] h-[100px]  whitespace-nowrap'>
                     <p className='text-ellipsis overflow-hidden'>{game.short_description}</p>
                 </div>
-                <Button variant="primary" onClick={() => openModal(game)}>
-                   More Info
-                </Button>
-                <Button className='mx-3' onClick={() => addCart(game)}>Agregar Carrito</Button>
+                    <span className='absolute -mt-16 text-xl font-bold border-green-500 border-2 px-3 py-1 rounded-full'>${game.id}</span>
+                <div>
+                    <Button variant="primary" onClick={() => openModal(game)}>
+                    More Info
+                    </Button>
+                    <Button className='mx-3' onClick={() => addCart(game)} variant='warning'>Add to cart</Button>
+                </div>
             </Card.Body>
         </Card>
     )

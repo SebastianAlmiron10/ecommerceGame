@@ -4,8 +4,6 @@ import { Button, Modal } from 'react-bootstrap';
 
 const MoreInfo = ({ Data, showModal, hideModal }) => {
 
-    console.log(Data.title)
-
     return (
         <Modal
             show={showModal}
@@ -30,11 +28,16 @@ const MoreInfo = ({ Data, showModal, hideModal }) => {
                             <span className='inline-flex bg-green-800 p-2 rounded-xl text-white font-bold'>
                                 {Data.genre}
                             </span>
+                            <span className='ml-8 text-xl font-bold border-green-500 border-2 px-3 py-1 rounded-full'>${Data.id}</span>
+
                         </div>
                     </div>
                 </Modal.Body>
            
             <Modal.Footer>
+                <a href={Data.game_url} target='_blank'>
+                    <Button>Official page</Button>
+                </a>
                 <Button onClick={hideModal}>Close</Button>
             </Modal.Footer>
         </Modal>

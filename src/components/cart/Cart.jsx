@@ -15,12 +15,12 @@ import {
     MDBModalBody
 } from "mdb-react-ui-kit";
 import PropTypes from "prop-types" 
-import CardItem from "../cardItem/CardItem";
+import CardItem from "../cartItem/CartItem";
 import CardCartChekout from "../cardCartChekout/cardCartChekout";
 
 
 
-const Cart = ({optSmModal, setOptSmModal, toggleOpen, ShoppingCart}) => {
+const Cart = ({optSmModal, setOptSmModal, toggleOpen, ShoppingCart, removeCart}) => {
     
 
     return (
@@ -47,12 +47,13 @@ const Cart = ({optSmModal, setOptSmModal, toggleOpen, ShoppingCart}) => {
                                                     </MDBTypography>
                                                 </MDBCardHeader>
                                                 <MDBCardBody>
-                                                    
+
                                                     {/*Componente propio*/}
                                                     {ShoppingCart.length ? ShoppingCart.map(game => (
                                                         <CardItem 
                                                             key={game.id}
                                                             game={game}
+                                                            removeCart={removeCart}
                                                         />  
                                                     )) : 'Shopping Cart empty'}
                                                     
@@ -84,6 +85,7 @@ Cart.propTypes = {
     optSmModal :PropTypes.bool,
     setOptSmModal: PropTypes.func,
     ShoppingCart: PropTypes.array,
+    removeCart: PropTypes.func,
 
 }
 

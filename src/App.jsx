@@ -94,7 +94,7 @@ function App() {
 
     <>
       <NavBar toggleOpen={toggleOpen} ShoppingCart={ShoppingCart}/>
-      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} ShoppingCart={ShoppingCart}/>
+      <Cart toggleOpen={toggleOpen} setOptSmModal={setOptSmModal} optSmModal={optSmModal} ShoppingCart={ShoppingCart} removeCart={removeCart}/>
       <GameList 
         Data={Data} 
         openModal={openModal} 
