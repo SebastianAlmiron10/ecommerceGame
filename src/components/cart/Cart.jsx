@@ -16,7 +16,7 @@ import {
 } from "mdb-react-ui-kit";
 import PropTypes from "prop-types" 
 import CardItem from "../cartItem/CartItem";
-import CardCartChekout from "../cardCartChekout/cardCartChekout";
+import CardCartChcdekout from "../cardCartChekout/cardCartChekout";
 
 
 
